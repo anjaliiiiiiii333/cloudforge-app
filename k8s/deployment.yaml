@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: cloudforge-app
-          image: cloudforge-app:v1
+          image: ghcr.io/anjaliiiiiiii333/cloudforge-app:e5f707a5910b6692e4a61a646a9a55b151733a05
           ports:
             - containerPort: 5000
