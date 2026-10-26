@@ -9,7 +9,7 @@ REQUESTS = Counter("app_requests_total", "Total requests", ["endpoint"])
 @app.route("/")
 def home():
     REQUESTS.labels(endpoint="/").inc()
-    return jsonify(message="Hello from CloudForge", version="1.0.0")
+    return jsonify(message="Hello from CloudForge v2", version="1.0.0")
 
 
 @app.route("/health")
