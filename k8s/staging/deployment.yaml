@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudforge-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cloudforge-app
+  template:
+    metadata:
+      labels:
+        app: cloudforge-app
+    spec:
+      containers:
+        - name: cloudforge-app
+          image: ghcr.io/anjaliiiiiiii333/cloudforge-app:f60f268cbb23bc8b086a0a673be5a5fc08f65a46
+          ports:
+            - containerPort: 5000
