@@ -2,9 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cloudforge-app
+  labels:
+    app: cloudforge-app
 spec:
   selector:
     app: cloudforge-app
   ports:
-    - port: 5000
+    - name: http
+      port: 5000
       targetPort: 5000
