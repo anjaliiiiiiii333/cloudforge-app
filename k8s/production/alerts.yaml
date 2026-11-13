@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: cloudforge-app-alerts
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: cloudforge-app
+      rules:
+        - alert: CloudForgeAppDown
+          expr: (sum(up{job="cloudforge-app", namespace="production"}) or vector(0)) < 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "CloudForge app is down in production"
+            description: "No healthy cloudforge-app pods reported by Prometheus for 1 minute."
