@@ -36,12 +36,6 @@ def health():
     return jsonify(status="ok")
 
 
-@app.route("/error")
-def error():
-    REQUESTS.labels(endpoint="/error").inc()
-    return jsonify(error="simulated failure"), 500
-
-
 @app.route("/metrics")
 def metrics():
     return generate_latest(), 200, {"Content-Type": CONTENT_TYPE_LATEST}

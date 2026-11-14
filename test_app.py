@@ -22,12 +22,6 @@ def test_metrics():
     assert b"app_requests_total" in resp.data
 
 
-def test_error_route():
-    client = app.test_client()
-    resp = client.get("/error")
-    assert resp.status_code == 500
-
-
 def test_latency_metric():
     client = app.test_client()
     client.get("/")
