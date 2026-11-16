@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths-ignore:
       - 'k8s/**'
+      - 'monitoring/**'
   pull_request:
 
 permissions:
